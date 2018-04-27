@@ -1,13 +1,21 @@
 product = require('../models/Product')
-class ProductController{
-    constructor(){
+class ProductController {
+    constructor() {
 
     }
 
-    view(req, res, next){
+    view(req, res, next) {
+
+        product.getAllProducts(function (err, rows) {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.status(200).json(rows);
+            }
+        });
+
         
-        console.log("vai executar o view do productController");
-        res.status(200).json({"id":1});
     }
 }
 
