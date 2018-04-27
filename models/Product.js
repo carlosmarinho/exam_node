@@ -8,15 +8,14 @@ var Product = {
     getProductById: function (id, callback) {
         return db.query("select * from product where Id=?", [id], callback);
     },
-    addProduct: function (Product, callback) {
-        console.log('produto: ', Product);
-        return db.query("Insert into product (`name`, `price`, `photo`) values (?,?,?)", [Product.name, Product.price, Product.photo], callback);
+    addProduct: function (product, callback) {
+        return db.query("Insert into product (`name`, `price`, `photo`) values (?,?,?)", [product.name, product.price, product.photo], callback);
     },
     deleteProduct: function (id, callback) {
         return db.query("delete from product where Id=?", [id], callback);
     },
-    updateProduct: function (id, Product, callback) {
-        return db.query("update product set name=?, price=?, photo=? where Id=?", [Product.name, Product.price, Product.photo, id], callback);
+    updateProduct: function (id, product, callback) {
+        return db.query("update product set name=?, price=?, photo=? where Id=?", [product.name, product.price, product.photo, id], callback);
     }
 
 };
