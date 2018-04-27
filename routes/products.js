@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/Product');
+var ProductController = require('../controller/Product')
+
+router.get('/', (req, res, next) => ProductController.view(req, res, next) );
 
 router.get('/:id?', function (req, res, next) {
 
