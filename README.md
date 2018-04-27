@@ -1,6 +1,10 @@
 # exam_node
 Prova de NodeJs para a TO Brasil
 
+IDE usada para desenvolvimento
+
+* Visual Studio Code
+
 Framework Utilizado
 
 * Express
