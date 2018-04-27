@@ -6,6 +6,21 @@ class ProductController {
     }
 
     view(req, res, next) {
+        if (!req.params.id) {
+            res.status(400).json({"erro":"Bad Request"});
+        }
+
+        product.getProductById(req.params.id, function (err, rows) {
+            if (err) {
+                res.status(500).json(err);
+            }
+            else {
+                res.status(200).json(rows);
+            }
+        });
+    }
+
+    viewAll(req, res, next) {
 
         product.getAllProducts(function (err, rows) {
             if (err) {
@@ -15,8 +30,6 @@ class ProductController {
                 res.status(200).json(rows);
             }
         });
-
-        
     }
 }
 

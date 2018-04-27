@@ -3,9 +3,11 @@ var router = express.Router();
 var Product = require('../models/Product');
 var ProductController = require('../controller/Product')
 
-router.get('/', (req, res, next) => ProductController.view(req, res, next) );
+router.get('/', (req, res, next) => ProductController.viewAll(req, res, next) );
+router.get('/:id?', (req, res, next) => ProductController.view(req, res, next) );
 
-router.get('/:id?', function (req, res, next) {
+
+/*router.get('/:id?', function (req, res, next) {
 
   if (req.params.id) {
 
@@ -32,7 +34,7 @@ router.get('/:id?', function (req, res, next) {
 
     });
   }
-});
+});*/
 router.post('/', function (req, res, next) {
 
   Product.addProduct(req.body, function (err, count) {
