@@ -5,20 +5,24 @@ class UserController {
     }
 
     login (req, res, next) {
-        var email = req.body.email;
+        var login = req.body.login;
         var password = req.body.password;
-        user.login
-
-        
+        console.log(req);
+        if(user.login(login, password)){
+            res.status(200).json({status:true, message: 'Usuário logado com sucesso'})
+        }
+        else{
+            res.status(200).json({status:false, message: 'Login ou senha inválida, por favor tente novamente!'})
+        }
     }
 
     remove(req, res, next) {
         user.deleteUser(req.params.id, function (err, count) {
             if (err) {
-                res.json(err);
+                res.status(500).json(err);
             }
             else {
-                res.json(count);
+                res.status(200).json(count);
             }
 
         });

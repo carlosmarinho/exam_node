@@ -2,9 +2,12 @@ var db = require('../dbconnection'); //reference of dbconnection.js
 
 var User = {
 
-    login: function (email, password) {
-    }
-
+    login: function (login, password) {
+        if(login === 'admin' && password === '12345678')
+            return true;
+        
+        return false;
+    },
     getAllUsers: function (callback) {
         return db.query("Select * from user", callback);
     },
