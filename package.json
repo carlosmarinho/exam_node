@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "nyc --reporter=html --reporter=lcov --reporter=text-lcov --reporter=text --report-dir=test/reports mocha -u bdd test/unit/**/*.js --timeout 12000"
   },
   "dependencies": {
     "body-parser": "~1.0.0",
@@ -16,6 +17,7 @@
     "mocha": "^5.1.1",
     "morgan": "~1.0.0",
     "mysql": "^2.15.0",
+    "nyc": "^11.7.1",
     "sinon": "^4.5.0",
     "static-favicon": "~1.0.0"
   }
