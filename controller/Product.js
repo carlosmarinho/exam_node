@@ -1,6 +1,7 @@
-product = require('../models/Product')
+const product = require('../models/Product')
 class ProductController {
     constructor() {
+        this.product = require('../models/Product')
 
     }
 
@@ -8,7 +9,7 @@ class ProductController {
 
         product.getAllProducts(function (err, rows) {
             if (err) {
-                res.json(err);
+                res.status(500).json(err);
             }
             else {
                 res.status(200).json(rows);
