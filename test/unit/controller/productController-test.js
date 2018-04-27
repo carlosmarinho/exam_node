@@ -25,10 +25,13 @@ describe('Teste do controller product', () => {
 
         it('Deve retornar um json com todos os produtos', (done) => {
             let res = {
-                json: (ret) => {
-                    console.log(ret);
-                    expect(ret).to.be.an('object');
-                    done();
+                status: (code) => {
+                    json: (ret) => {
+                        console.log(ret);
+                        expect(code).to.be.equal(200);
+                        expect(ret).to.be.an('object');
+                        done();
+                    }
                 }
             }
             productController.view(req, res, sinon.spy())
