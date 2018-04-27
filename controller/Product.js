@@ -5,6 +5,7 @@ class ProductController{
     }
 
     view(req, res, next){
+        
         console.log("vai executar o view do productController");
         res.json({"id":1});
     }

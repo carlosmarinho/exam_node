@@ -14,8 +14,24 @@ describe('Teste do controller product', () => {
     })
 
     describe('Product:: Metodo View', () => {
-        it('Deve retornar um json com todos os produtos', (done) => {
+        const req = {
+            body: {
 
+            },
+            headers:{
+
+            }
+        }
+
+        it('Deve retornar um json com todos os produtos', (done) => {
+            let res = {
+                json: (ret) => {
+                    console.log(ret);
+                    expect(ret).to.be.an('object');
+                    done();
+                }
+            }
+            productController.view(req, res, sinon.spy())
         })
     })
 })
