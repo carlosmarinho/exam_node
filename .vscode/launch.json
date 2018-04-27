@@ -10,6 +10,13 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}/bin/www"
+
+        },
+        {
+            "name": "Debugar - Local",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.js"
         },
         {
             "name": "Debugar Teste Unitário",

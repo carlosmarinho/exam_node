@@ -18,7 +18,13 @@ class ProductController {
     }
 
     add(req, res, next) {
-        product.addProduct(req.body, function (err, count) {
+        let prod = {
+            name: req.body.name,
+            price: req.body.price,
+            photo: req.body.photo
+        };
+
+        product.addProduct(prod, function (err, count) {
             if (err) {
                 res.status(500).json(err);
             }
