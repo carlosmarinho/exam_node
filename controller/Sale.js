@@ -1,4 +1,4 @@
-class VendaController {
+class SaleController {
     constructor() {
         this.jsonVendaProduto = [
             {"nome":"A", "valor":"60.000", "data":"01/01/2018"},
