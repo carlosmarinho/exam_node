@@ -34,6 +34,17 @@ class ProductController {
         });
     }
 
+    update(req, res, next) {
+        product.updateProduct(req.params.id, req.body, function (err, rows) {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.json(rows);
+            }
+        });
+    }
+
     view(req, res, next) {
         if (!req.params.id) {
             res.status(400).json({ "erro": "Bad Request" });
