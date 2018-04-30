@@ -3,18 +3,29 @@ var db = require('../dbconnection'); //reference of dbconnection.js
 var Product = {
 
     getAllProducts: function (params, callback) {
-        let where = null;
+        let where = "";
         let order = null;
         if(params.sort)
         {
             let sort = params.sort.split(',')
             let asc = sort[1].replace("]","").replace('"','').replace('"','');
             sort = sort[0].replace("[", "").replace('"','').replace('"','');
-            console.log("aqui1: ", sort, "\n asc: ", asc );
+            
             order = " order by " + sort + " " + asc
         }
+        console.log("get all products");
+        if(params.filter && params.filter !== "{}")
+        {
+                let filter = params.filter.split(':')
+                filter = filter[1].replace("}","").replace('"','').replace('"','');
+                /*@todo colocar a query parametrizada com ?*/
+                where = " where `name` like '" + filter + "%' ";
+        }
         
-        ret =  db.query("Select * from product" + order, callback);
+        console.log("vai executar a query");
+        let sql = "Select * from product" + where + order;
+console.log("sql: ", sql);
+        ret =  db.query(sql, callback);
         
         
         return ret;
