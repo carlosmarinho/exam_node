@@ -28,13 +28,13 @@ class UserController {
     }
 
     add(req, res, next) {
-        let prod = {
-            name: req.body.name,
-            price: req.body.price,
-            photo: req.body.photo
+        let user = {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            email: req.body.email
         };
 
-        user.addUser(prod, function (err, count) {
+        user.addUser(user, function (err, count) {
             if (err) {
                 res.status(500).json(err);
             }

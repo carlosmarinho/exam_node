@@ -9,13 +9,35 @@ var User = {
         return false;
     },
     getAllUsers: function (callback) {
-        return db.query("Select * from user", callback);
+        let where = "";
+        let order = null;
+        if(params.sort)
+        {
+            let sort = params.sort.split(',')
+            let asc = sort[1].replace("]","").replace('"','').replace('"','');
+            sort = sort[0].replace("[", "").replace('"','').replace('"','');
+            
+            order = " order by " + sort + " " + asc
+        }
+
+        if(params.filter && params.filter !== "{}")
+        {
+                let filter = params.filter.split(':')
+                filter = filter[1].replace("}","").replace('"','').replace('"','');
+                /*@todo colocar a query parametrizada com ?*/
+                where = " where `username` like '" + filter + "%' ";
+        }
+        
+        let sql = "Select * from user" + where + order;
+        ret =  db.query(sql, callback);
+        
+        return ret;
     },
     getUserById: function (id, callback) {
         return db.query("select * from user where Id=?", [id], callback);
     },
     addUser: function (user, callback) {
-        return db.query("Insert into user (`name`, `price`, `photo`) values (?,?,?)", [user.name, user.price, user.photo], callback);
+        return db.query("Insert into user (`username`, `firstname`, `lastname`, `email`) values (?,?,?,?)", [user.name, user.price, user.photo], callback);
     },
     deleteUser: function (id, callback) {
         return db.query("delete from user where Id=?", [id], callback);
