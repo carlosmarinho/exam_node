@@ -8,6 +8,7 @@ var cors = require('cors');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var Products = require('./routes/products');
+var Sales = require('./routes/sales');
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/products', Products);
+app.use('/sales', Sales);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

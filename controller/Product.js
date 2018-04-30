@@ -61,8 +61,7 @@ class ProductController {
     }
 
     viewAll(req, res, next) {
-
-        product.getAllProducts(function (err, rows) {
+        product.getAllProducts(req.query, function (err, rows) {
             if (err) {
                 res.status(500).json(err);
             }
