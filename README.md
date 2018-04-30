@@ -18,6 +18,7 @@ Pacotes utilizados para testes
 
 Para rodar os testes basta digitar npm run test
 
+
 INSTALAÇÃO
 
 * Versão node utilizada: v9.10.0 (utilizando o nvm como gerenciador de versões node)
@@ -28,11 +29,13 @@ INSTALAÇÃO
 
 * Carregar o banco de dados no arquivo carga.sql
 
+
 OBSERVAÇÕES
 
 ** Acabei criando a api de usuário e verifiquei somente depois que não era necessário fazer login pelo banco
 
-Alguns @todo
+
+MELHORIAS E CORREÇÕES DE POSSIVEIS BUGS ( @todo )
 
 ** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Porduct
 
@@ -44,6 +47,8 @@ Alguns @todo
 
 ** @todo Trocar o campo foto de string para exibir imagem
 
-** @todo Fazer as validações com o Joi
+** @todo Retirar a validação do controller do produto e colocar no model
+
+** @todo Melhorar as validações com o Joi (módulo npm)
 
 ** @todo ao criar o produto redirecionar para a lista de produtos ou redirecionar para a tela de criar novo (como já está hoje), porém sem o nome do produto como undefined
