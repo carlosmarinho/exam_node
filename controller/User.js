@@ -60,7 +60,6 @@ class UserController {
     }
 
     viewAll(req, res, next) {
-
         user.getAllUsers(function (err, rows) {
             if (err) {
                 res.status(500).json(err);

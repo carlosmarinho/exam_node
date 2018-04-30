@@ -8,9 +8,9 @@ var User = {
         
         return false;
     },
-    getAllUsers: function (callback) {
+    getAllUsers: function (params, callback) {
         let where = "";
-        let order = null;
+        let order = "";
         if(params.sort)
         {
             let sort = params.sort.split(',')
@@ -28,7 +28,8 @@ var User = {
                 where = " where `username` like '" + filter + "%' ";
         }
         
-        let sql = "Select * from user" + where + order;
+        let sql = "Select * from user " + where + order;
+
         ret =  db.query(sql, callback);
         
         return ret;
@@ -43,7 +44,7 @@ var User = {
         return db.query("delete from user where Id=?", [id], callback);
     },
     updateUser: function (id, user, callback) {
-        return db.query("update user set name=?, price=?, photo=? where Id=?", [user.name, user.price, user.photo, id], callback);
+        return db.query("update user set username=?, firstname=?, lastname=? where Id=?", [user.username, user.firstname, user.lastname, id], callback);
     }
 
 };

@@ -5,7 +5,7 @@ var Product = {
 
     getAllProducts: function (params, callback) {
         let where = "";
-        let order = null;
+        let order = "";
         if(params.sort)
         {
             let sort = params.sort.split(',')
@@ -25,9 +25,9 @@ var Product = {
         
         let sql = "Select * from product" + where + order;
         ret =  db.query(sql, callback);
-        
         return ret;
     },
+    
     getProductById: function (id, callback) {
         return db.query("select * from product where Id=?", [id], callback);
     },
