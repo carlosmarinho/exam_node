@@ -1,5 +1,6 @@
 var db = require('../dbconnection'); //reference of dbconnection.js
 
+
 var Product = {
 
     getAllProducts: function (params, callback) {
@@ -13,7 +14,7 @@ var Product = {
             
             order = " order by " + sort + " " + asc
         }
-        console.log("get all products");
+
         if(params.filter && params.filter !== "{}")
         {
                 let filter = params.filter.split(':')
@@ -22,11 +23,8 @@ var Product = {
                 where = " where `name` like '" + filter + "%' ";
         }
         
-        console.log("vai executar a query");
         let sql = "Select * from product" + where + order;
-console.log("sql: ", sql);
         ret =  db.query(sql, callback);
-        
         
         return ret;
     },

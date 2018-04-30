@@ -24,8 +24,16 @@ class ProductController {
             photo: req.body.photo
         };
 
+        if (prod.name == "" || prod.name == null)
+            return res.status(400).json({'error': true, 'message': "Campo Name obrigatório!"});
+        if (prod.price == "" || prod.price == null)
+            return res.status(400).json({'error': true, 'message': "Campo Price obrigatório!"});
+        if (prod.photo == "" || prod.photo == null)
+            return res.status(400).json({'error': true, 'message': "Campo Foto obrigatório!"});
+
         product.addProduct(prod, function (err, count) {
             if (err) {
+                console.log("errrooo: ", err)
                 res.status(500).json(err);
             }
             else {

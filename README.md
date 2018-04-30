@@ -20,6 +20,8 @@ Para rodar os testes basta digitar npm run test
 
 INSTALAÇÃO
 
+* Versão node utilizada: v9.10.0 (utilizando o nvm como gerenciador de versões node)
+
 * Clonar o projeto
 
 * npm install (ou yarn install)
@@ -41,3 +43,7 @@ Alguns @todo
 ** @todo Fazer login atravez da tabela user e não hardcoded
 
 ** @todo Trocar o campo foto de string para exibir imagem
+
+** @todo Fazer as validações com o Joi
+
+** @todo ao criar o produto redirecionar para a lista de produtos ou redirecionar para a tela de criar novo (como já está hoje), porém sem o nome do produto como undefined
