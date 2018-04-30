@@ -22,7 +22,7 @@ INSTALAÇÃO
 
 * Clonar o projeto
 
-* npm install
+* npm install (ou yarn install)
 
 * Carregar o banco de dados no arquivo carga.sql
 
