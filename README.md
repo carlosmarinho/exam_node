@@ -16,5 +16,28 @@ Pacotes utilizados para testes
 * Chai
 * Nyc - Utilizado para gerar os relatórios que estão armazenados no diretório /test/reports
 
+Para rodar os testes basta digitar npm run test
 
-OBS.: Acabei criando a api de usuário e verifiquei somente depois que não era necessário fazer login pelo banco
+INSTALAÇÃO
+
+* Clonar o projeto
+
+* npm install
+
+* Carregar o banco de dados no arquivo carga.sql
+
+OBSERVAÇÕES
+
+** Acabei criando a api de usuário e verifiquei somente depois que não era necessário fazer login pelo banco
+
+Alguns @todo
+
+** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Porduct
+
+** @todo incluir migrations para criação e atualização do banco de dados
+
+** @todo Finalizar todos os testes unitário (devido a falta de tempo só desenvolvi o metodo view e viewAll do controller Produto com Tdd)
+
+** @todo Fazer login atravez da tabela user e não hardcoded
+
+** @todo Trocar o campo foto de string para exibir imagem
