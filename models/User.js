@@ -28,10 +28,11 @@ var User = {
                 where = " where `username` like '" + filter + "%' ";
         }
         
-        let sql = "Select * from user " + where + order;
+        let sql = "Select * from user" + where + order;
+        console.log("sql: ", sql);
 
         ret =  db.query(sql, callback);
-        
+        console.log('ret', ret);
         return ret;
     },
     getUserById: function (id, callback) {
