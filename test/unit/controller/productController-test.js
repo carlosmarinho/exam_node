@@ -106,7 +106,7 @@ describe('Teste do controller product', () => {
                 {"id":2,"name":"TESTE B","date":"2018-04-27T12:43:58.000Z","price":40,"photo":null}
              ]
 
-            sandbox.stub(product, 'getAllProducts').callsFake(function(cb){
+            sandbox.stub(product, 'getAllProducts').callsFake(function(params, cb){
                 cb(null, ret);
             })
 
@@ -121,7 +121,6 @@ describe('Teste do controller product', () => {
                 status: function(code) {
                     return{
                         json: (ret) => {
-                            console.log(ret);
                             expect(code).to.be.equal(500);
                             expect(ret.message).to.be.equal(msgErro);
                             done();
@@ -130,7 +129,7 @@ describe('Teste do controller product', () => {
                 }
             }
 
-            sandbox.stub(product, 'getAllProducts').callsFake(function(cb){
+            sandbox.stub(product, 'getAllProducts').callsFake(function(params, cb){
                 cb(new Error(msgErro), null);
             })
 
