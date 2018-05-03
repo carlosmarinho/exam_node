@@ -43,10 +43,7 @@ var User = {
         return db.query("delete from user where Id=?", [id], callback);
     },
     updateUser: function (id, user, callback) {
-        console.log("\n\nNo update user: ", user);
         ret = db.query("update user set username=?, first_name=?, last_name=?, email=? where Id=?", [user.username, user.first_name, user.last_name, user.email, id], callback);
-        console.log("no updateuser: ", ret);
-        console.log("\n\nUsuario:::: ", user);
         return ret;
     }
 

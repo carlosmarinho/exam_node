@@ -57,7 +57,6 @@ APIs
    - http://localhost:3001/users/:id (PUT) - Atualização de usuário
 
 
-
 OBSERVAÇÕES
 
 ** Acabei criando a api de usuário e verifiquei somente depois que não era necessário fazer login pelo banco
@@ -65,7 +64,7 @@ OBSERVAÇÕES
 
 MELHORIAS E CORREÇÕES DE POSSIVEIS BUGS ( @todo )
 
-** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Product
+** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Product e do 'getAllUser' do model User
 
 ** @todo incluir migrations para criação e atualização do banco de dados
 
