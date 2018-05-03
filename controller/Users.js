@@ -55,6 +55,7 @@ class UsersController {
     }
 
     update(req, res, next) {
+        console
         user.updateUser(req.params.id, req.body, function (err, rows) {
             if (err) {
                 res.json(err);

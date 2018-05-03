@@ -29,23 +29,25 @@ var User = {
         }
         
         let sql = "Select * from user" + where + order;
-        console.log("sql: ", sql);
 
         ret =  db.query(sql, callback);
-        console.log('ret', ret);
         return ret;
     },
     getUserById: function (id, callback) {
         return db.query("select * from user where Id=?", [id], callback);
     },
     addUser: function (user, callback) {
-        return db.query("Insert into user (`username`, `firstname`, `lastname`, `email`) values (?,?,?,?)", [user.name, user.price, user.photo], callback);
+        return db.query("Insert into user (`username`, `first_name`, `last_name`, `email`) values (?,?,?,?)", [user.username, user.first_name, user.last_name, user.email], callback);
     },
     deleteUser: function (id, callback) {
         return db.query("delete from user where Id=?", [id], callback);
     },
     updateUser: function (id, user, callback) {
-        return db.query("update user set username=?, firstname=?, lastname=? where Id=?", [user.username, user.firstname, user.lastname, id], callback);
+        console.log("\n\nNo update user: ", user);
+        ret = db.query("update user set username=?, first_name=?, last_name=?, email=? where Id=?", [user.username, user.first_name, user.last_name, user.email, id], callback);
+        console.log("no updateuser: ", ret);
+        console.log("\n\nUsuario:::: ", user);
+        return ret;
     }
 
 };

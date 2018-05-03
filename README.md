@@ -29,6 +29,34 @@ INSTALAÇÃO
 
 * Carregar o banco de dados no arquivo carga.sql
 
+* fazer as alterações necessárias do banco de dados que está localizada no arquivo dbconnections.js
+
+APIs
+
+* Api de relatórios
+  
+   - http://localhost:3001/sales/vendaproduto (GET) (Relatório de venda por produto)
+   - http://localhost:3001/sales/vendaestado (GET) (Relatório de venda por estado)
+   - http://localhost:3001/sales/vendacidade (GET) (Relatório de venda por cidade)
+
+* Api de Produtos
+
+   - http://localhost:3001/products/ (GET) - Listagem de todos os produtos 
+   - http://localhost:3001/products/ (POST) - Cadastro dos produtos
+   - http://localhost:3001/products/:id (GET) - Exibição do produto específico
+   - http://localhost:3001/products/:id (DELETE) - Exclusão do produto específico
+   - http://localhost:3001/products/:id (PUT) - Atualização de usuário
+
+* Api de Usuários
+
+   - http://localhost:3001/users/login (POST) - Login de usuário
+   - http://localhost:3001/users/ (GET) - Listagem de todos os usuários 
+   - http://localhost:3001/users/ (POST) - Cadastro dos usuários
+   - http://localhost:3001/users/:id (GET) - Exibição do usuário específico
+   - http://localhost:3001/users/:id (DELETE) - Exclusão do usuário específico
+   - http://localhost:3001/users/:id (PUT) - Atualização de usuário
+
+
 
 OBSERVAÇÕES
 
@@ -37,13 +65,13 @@ OBSERVAÇÕES
 
 MELHORIAS E CORREÇÕES DE POSSIVEIS BUGS ( @todo )
 
-** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Porduct
+** @todo colocar a query parametrizada com ? no método 'getAllProducts' do model Product
 
 ** @todo incluir migrations para criação e atualização do banco de dados
 
 ** @todo Finalizar todos os testes unitário (devido a falta de tempo só desenvolvi o metodo view e viewAll do controller Produto com Tdd)
 
-** @todo Fazer login atravez da tabela user e não hardcoded
+** @todo Fazer login atravez da tabela user e não hardcoded que está no model user
 
 ** @todo Trocar o campo foto de string para exibir imagem
 
