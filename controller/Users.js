@@ -7,8 +7,8 @@ class UsersController {
     }
 
     login(req, res, next) {
-        var login = req.body.username;
-        var password = req.body.password;
+        let login = req.body.username;
+        let password = req.body.password;
         if (user.login(login, password)) {
             res.status(200).json({ status: true, message: 'Usuário logado com sucesso' })
         }
